@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>HR Salary Prediction Dashboard</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='css/main.css') }}">
+    <script src='main.js'></script>
+    
+</head>
+
+
+
+
+<body background = "https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800" >
+    <style>
+        body { 
+                
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            }
+                </style>
+
+<div  class="input form">
+    <h1 id="heading">Application For HR Salary Prediction</h1>
+    <style>
+        h1 {
+            color: black;
+            text-align: center;
+            font-family: 'Times New Roman';
+        }
+        </style>
+
+<div id = image>
+    <img src = "https://images.pexels.com/photos/3184285/pexels-photo-3184285.jpeg?auto=compress&cs=tinysrgb&w=800">
+        <style>
+        img {
+            width:50%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        </style>
+    <div class="register_page">
+        <style>
+            register_page{
+            width: 360px;
+            margin: auto;
+            }
+        </style>
+        <div class="form">
+            <style>
+            form {
+                position: relative;
+                z-index: 1;
+                background: #ffff;
+                max-width: 360px;
+                margin: 0 auto 100px;
+                padding: 45px;
+            }
+            </style>
+            <form action="{{url_for('predict')}}" method="POST">
+                
+                <label for="age">Enter Age :</label>
+                <input type="number" name="age" id="age" min="17" required placeholder="Age of the Employee">
+                <button type="button" onclick="checkAge()">submit</button>
+                <br><br>
+                
+                <label for="education">Education : </label>
+                <select id="education" name="education">
+                    <option value="HS-grad">HS-grad</option>
+                    <option value="Some-college">Some-college</option>
+                    <option value="Bachelors">Bachelors</option>
+                    <option value="Masters">Masters</option>
+                    <option value="Assoc-voc">Assoc-voc</option>
+                    <option value="11th">11th</option>
+                    <option value="Assoc-acdm">Assoc-acdm</option>
+                    <option value="10th">10th</option>
+                    <option value="7th-8th">7th-8th</option>
+                    <option value="Prof-school">Prof-school</option>
+                    <option value="9th">9th</option>
+                    <option value="12th">12th</option>
+                    <option value="Doctorate">Doctorate</option>
+                    <option value="5th-6th">5th-6th</option>
+                    <option value="1st-4th">1st-4th</option>
+                    <option value="Preschool">Preschool</option>
+                </select>
+                <br>
+                
+                <label for="workclass">Workclass : </label>
+                <select id="workclass" name="workclass">
+                    <option value="Private">Private</option>
+                    <option value="Self-emp-not-inc">Self-emp-not-inc</option>
+                    <option value="State-gov">State-gov</option>
+                    <option value="Local-gov">Local-gov</option>
+                    <option value="Self-emp-inc">Self-emp-inc</option>
+                    <option value="Federal-gov">Federal-gov</option>
+                    <option value="Without-pay">Without-pay</option>
+                    <option value="Never-worked">Never-worked</option>
+                    <option value="other">other</option>
+                   
+                </select>
+                <br>
+
+                <label for="occupation">Occupation : </label>
+                <select id="occupation" name="occupation">
+                    <option value="Prof-specialty">Prof-specialty</option>
+                    <option value="Exec-managerial">Exec-managerial</option>
+                    <option value="Adm-clerical">Adm-clerical</option>
+                    <option value="Craft-repair">Craft-repair</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Other-service">Other-service</option>
+                    <option value="Machine-op-inspct">Machine-op-inspct</option>
+                    <option value="Transport-moving">Transport-moving</option>
+                    <option value="Handlers-cleaners">Handlers-cleaners</option>
+                    <option value="Farming-fishing">Farming-fishing</option>
+                    <option value="Tech-support">Tech-support</option>
+                    <option value="Protective-serv">Protective-serv</option>
+                    <option value="Priv-house-serv">Priv-house-serv</option>
+                    <option value="Armed-Forces">Armed-Forces</option>
+                    
+                </select>
+                <br>
+
+                <label for="sex">Gender : </label>
+                <select id="sex" name="sex">
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
+                <br>
+                
+
+                <label for="hours_per_week">Hours worked in a week : </label>
+                <input type="number" name="hours_per_week" id="hours_per_week" min="0" required placeholder="How long did he work in a week(in hours)"><br><br>
+
+
+
+
+                <input type="submit" value="predict" class="submit">
+            
+            <p> The predicted salary is (in Rs): {{data}}</p>
+            </form>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
